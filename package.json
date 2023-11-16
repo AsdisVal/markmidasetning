@@ -1,19 +1,28 @@
 {
   "name": "markmidasetning",
   "version": "1.0.0",
-  "description": "",
+  "description": "\"góð æfing í vefforritun\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "browser-sync": "browser-sync start --server --files index.html styles.css"
   },
-  "author": "",
+  "author": "Ásdís Valtýsdóttir",
   "license": "ISC",
   "dependencies": {
-    "browser-sync": "^2.29.3",
     "build": "^0.1.4",
     "concurrently": "^8.2.2",
     "sass": "^1.69.5",
     "stylelint": "^15.11.0",
     "stylelint-config-sass-guidelines": "^10.0.0"
-  }
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "golf_planner"
+  },
+  "keywords": [
+    "golf"
+  ]
 }

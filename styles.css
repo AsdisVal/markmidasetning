@@ -16,18 +16,19 @@
 /* Leturgerðir */
 
 @font-face {
-    font-family: "Lora";
-    font-style: normal;
-    font-display: swap;
-    src: url("./fonts/Lora-VariableFont_wght.ttf") format("woff");
+    font-family: 'Roboto';
+    font-weight: 400;
+    src:  url('assets/fonts/roboto-regular-webfont.woff2') format('woff2'),
+          url('assets/fonts/roboto-regular-webfont.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'RobotoBold';
+    font-weight: 700;
+    src:  url('assets/fonts/roboto-bold-webfont.woff2') format('woff2'),
+          url('assets/fonts/roboto-bold-webfont.woff') format('woff');
   }
   
-  @font-face {
-    font-family: "Noto Sans Display";
-    font-style: normal;
-    font-display: swap;
-    src: url("./fonts/NotoSansDisplay-VariableFont.ttf") format("woff");
-  }
 
 /* Stillingar */
 
@@ -47,12 +48,13 @@
     --border-small: 1px;
     --border-large: 8px;
     --border-radius: 6px;
+    --border-radius-xl:25px;
   
     /* Litir */
     --color-gold: #ffe7ae;
-    --color-gold-light: #fff1cf;
-    --color-dark: #2f0505;
-    --color-light: #fff9ee;
+    --color-gold-light:#ffffe0;
+    --color-golf-green:#5c9c52;
+    --color-light-grey:#d9d9d9 ;
   
     /* Grid stillingar */
     --columns: 12;
@@ -61,8 +63,8 @@
   
     /* Letur stillingar */
     --font-base-size: 1rem;
-    --font-family-base: "Noto Sans Display", Helvetica, Arial, sans-serif;
-    --font-family-heading: "Lora", Georgia, serif;
+    --font-family-base: "Roboto", sans-serif;
+    --font-family-heading: "RobotoBold", sans-serif;
   
     /* Transitions */
     --transition-time-short: 300ms;
@@ -71,6 +73,14 @@
   }
 
 /* Almennt */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  background-color: var(--color-light-grey);
+  margin: 1rem;
+}
 
 html,
 input,
@@ -140,33 +150,35 @@ img {
   .header {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: var(--spacing);
     padding-top: var(--spacing);
     width: 100%;
-    border-bottom: var(--border-large) solid var(--color-gold);
-    background-color: var(--color-dark);
-    color: var(--color-gold-light);
+    background-color: var(--color-golf-green);
+    color: #000;
+    border-radius:var(--border-radius-xl);
   }
   
   .header header {
     display: flex;
     flex-direction: column;
-    align-items: center;
     max-width: var(--width-offset);
     text-align: center;
+    
+
+    .golf-planner {
+      margin-bottom: 0;
+    }
   }
+  
   
 
 .nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: var(--spacing) 0;
     width: 100%;
-  
-    background-color: var(--color-light);
-    color: var(--color-dark);
   }
   
   .nav ul {
@@ -178,6 +190,32 @@ img {
     max-width: var(--width-offset);
     list-style: none;
   }
+
+  .btn {
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 0.5em 1em;
+    columns: var(--color-golf-green);
+    background-color: var(--color-gold-light);
+    border: 10px solid var(--color-golf-green);
+    border-radius: 5px;
+    color: var(--color-golf-green);
+
+    /* transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s; */
+
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-10px);
+    background-color: var(--color-golf-green);
+    color:var(--color-gold-light) ;
+  }
+
+  
 
   .plan-container {
     display: grid;
