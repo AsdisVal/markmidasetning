@@ -341,6 +341,11 @@ img {
   
 }
 
+.box {
+  display: grid;
+  grid-column-start: span 6;
+}
+
 /* Markmiðasetning */
 .goal-container {
     display: grid;
@@ -461,11 +466,21 @@ list-style: none;
   
 }
 
-.visual {
+.visual-a {
   background-color: var(--color-light-blue);
   padding: var(--spacing);
   border-radius: var(--border-radius-xl);
 }
+
+.visual-b {
+  background-color: var(--color-golf-green);
+  padding: var(--spacing);
+  border-radius: var(--border-radius-xl);
+}
+
+
+
+
 
 
 
