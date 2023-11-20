@@ -443,6 +443,31 @@ list-style: none;
   color: #e63946;
 }
 
+.test-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center; 
+  align-items: center;
+
+}
+
+.stat3{
+  align-self: start;
+  
+}
+
+.stat4 {
+  align-self: start;
+  
+}
+
+.visual {
+  background-color: var(--color-light-blue);
+  padding: var(--spacing);
+  border-radius: var(--border-radius-xl);
+}
+
+
 
 
 

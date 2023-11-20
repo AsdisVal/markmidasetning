@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golfhringir</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+
+            <p class="sr-only"><a href="#efni">Beint í efni</a></p>
+
+            <nav class="nav">
+                <ul>
+                    <li><strong>Golfhringir</strong></li>
+                    <li><a href="tolfraedi.html">Aftur í tölfræði</a></li>
+                  </ul>
+            </nav>
+        </div>
+        <main class="main" id="efni">
+            <section class="intro">
+                <h1>Tölfræði yfir golfhringi</h1>
+            </section>
+
+            <div class="golfclubs">
+                <div class="golfclub">
+                    <h3>Golfklúbbur Keilir</h3>
+                    <h4 class="chart-heading">Driving Accuracy</h4>
+                    <div class="driving-stats">
+                        <div class="chart-container">
+                            <canvas class="my-chart"></canvas>
+                        </div>
+    
+                        <div class="details">
+                            <ul></ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            
+        </main>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../main.js"></script>
+</body>
+</html>
