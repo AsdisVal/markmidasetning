@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 html {
@@ -12,4 +13,444 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+/* Leturgerðir */
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  src: url('assets/fonts/roboto-regular-webfont.woff2') format('woff2'),
+    url('assets/fonts/roboto-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RobotoBold';
+  font-weight: 700;
+  src: url('assets/fonts/roboto-bold-webfont.woff2') format('woff2'),
+    url('assets/fonts/roboto-bold-webfont.woff') format('woff');
+}
+
+/* Stillingar */
+
+:root {
+  /* Grunn bilið okkar er 1rem == 16px */
+  --font-base-body-px: 16px;
+  --spacing: 1rem;
+
+  /* Bil á milli „stærri“ eininga (header, efnisbox, footer) */
+  --vertical-space: calc(var(--gutter));
+
+  /* Hámarksbreidd á efni */
+  --max-width: 1400px;
+  --width-offset: calc(100% - (2 * var(--offset)));
+
+  /* Border breiddir */
+  --border-small: 1px;
+  --border-large: 8px;
+  --border-radius: 6px;
+  --border-radius-xl: 25px;
+
+  /* Litir */
+  --color-gold: #ffe7ae;
+  --color-gold-light: #ffffe0;
+  /* --color-golf-green:#5c9c52; */
+  --color-golf-green: #91b491;
+  --color-light-grey: #d9d9d9;
+  --color-light-pink: #f5adad;
+  --color-light-blue: #adcfd8;
+  --color-whitey: #f8f8f8;
+
+  /* Grid stillingar */
+  --columns: 12;
+  --gutter: 30px;
+  --offset: 20px;
+
+  /* Letur stillingar */
+  --font-base-size: 1rem;
+  --font-family-base: 'Roboto', sans-serif;
+  --font-family-heading: 'RobotoBold', sans-serif;
+
+  /* Transitions */
+  --transition-time-short: 300ms;
+  --transition-time-long: 600ms;
+  --transition-timing-function: ease-in-out;
+}
+
+/* Almennt */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 35px;
+  line-height: 1.5;
+  background-color: var(--color-light-grey);
+  margin: 1rem;
+}
+
+html,
+input,
+select,
+button {
+  font-size: var(--font-base-body-px);
+  font-family: var(--font-family-base);
+}
+
+h1,
+h2,
+h3 {
+  /* Setjum almennt bil á eftir fyrirsögnum */
+  margin-bottom: var(--spacing);
+
+  font-family: var(--font-family-heading);
+}
+
+a {
+  color: inherit;
+  background-color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/** Hjálpar class sem felur sjónrænt en skjálesarar lesa **/
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Fade in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.header,
+.main {
+  animation: var(--transition-time-long) var(--transition-timing-function)
+    fade-in;
+}
+
+/* Utility Classes */
+.animate {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animate.animate--fast {
+  animation-duration: 0.6s;
+}
+
+.animate.animate--slow {
+  animation-duration: 3s;
+}
+
+/* Animations */
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-300px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation-name: slideInLeft;
+  animation-timing-function: ease-in;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(300px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation-name: slideInRight;
+  animation-timing-function: ease-in;
+}
+
+/* Layout */
+.wrapper {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 100%;
+  /* grid items eru miðjuð */
+  justify-items: center;
+  gap: var(--vertical-space);
+}
+
+/** Haus **/
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing);
+  padding-top: var(--spacing);
+  width: 100%;
+  background-color: var(--color-golf-green);
+  color: #000;
+  border-radius: var(--border-radius-xl);
+}
+
+.header header {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--width-offset);
+  text-align: center;
+
+  .golf-planner {
+    margin-bottom: 0;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing);
+  width: 100%;
+  max-width: var(--width-offset);
+  list-style: none;
+}
+
+/** Meginmál **/
+
+.main {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 100%;
+  gap: var(--vertical-space);
+
+  width: var(--width-offset);
+  max-width: var(--max-width);
+}
+
+.btn {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 0.5em 1em;
+  margin: 1em;
+  columns: var(--color-golf-green);
+  background-color: #fff;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  color: var(--color-golf-green);
+  width: 200px;
+  height: 200px;
+  box-shadow: 10px 5px 5px 5px #000;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-10px);
+  background-color: var(--color-golf-green);
+  color: #fff;
+  border: 10px solid var(--color-golf-green);
+}
+
+.plan-container {
+  display: grid;
+  grid-template-rows: auto;
+  gap: var(--vertical-space);
+  justify-items: center;
+  width: 100%;
+}
+
+.plan {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  padding: var(--spacing);
+  width: 100%;
+  min-height: 100px;
+  color: var(--color-dark);
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px #808080;
+}
+
+.plan .week-number {
+  margin-bottom: calc(var(--spacing) * 0.5);
+  border-bottom: var(--border-small) solid var(--color-dark);
+}
+
+/* Box! */
+
+.boxes {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: var(--gutter);
+}
+
+.box-info {
+  display: grid;
+  grid-column-start: span 6;
+  background-color: var(--color-light-blue);
+  padding: var(--spacing);
+  border-radius: var(--border-radius-xl);
+}
+
+.box-btn {
+  display: grid;
+  grid-column-end: span 6;
+}
+
+.box {
+  display: grid;
+  grid-column-start: span 6;
+}
+
+/* Markmiðasetning */
+.goal-container {
+  display: grid;
+  grid-template-rows: auto;
+  gap: var(--vertical-space);
+  justify-items: center;
+  width: 100%;
+}
+
+.goal {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  padding: var(--spacing);
+  width: 100%;
+  min-height: 100px;
+  color: var(--color-dark);
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px #808080;
+}
+
+.goal ul li {
+  list-style: none;
+}
+
+.goal-follow-through {
+  grid-column: span 6;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  padding: var(--spacing);
+  width: 100%;
+  min-height: 100px;
+  color: var(--color-dark);
+  background-color: var(--color-light-blue);
+  border-radius: 25px;
+  box-shadow: 0 10px 30px #808080;
+}
+
+.goal-follow-through ul li {
+  list-style: none;
+}
+
+.motto {
+  grid-column: span 6;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  padding: var(--spacing);
+  width: 100%;
+  max-height: 250px;
+  color: var(--color-dark);
+  background-color: var(--color-golf-green);
+  border-radius: 25px;
+  box-shadow: 0 10px 30px #808080;
+}
+/* Tölfræði */
+
+.chart-heading {
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.chart-container {
+  width: 200px;
+}
+
+.driving-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0 auto;
+  width: fit-content;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+  padding: 8px 32px;
+}
+
+.driving-stats:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px -7px rgba(0, 0, 0, 0.3);
+}
+
+.driving-stats .details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.details ul li {
+  margin: 12px 0;
+  text-transform: uppercase;
+}
+
+.driving-stats .details .percentage {
+  font-weight: 800;
+  color: #e63946;
+}
+
+.test-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.stat3 {
+  align-self: start;
+}
+
+.stat4 {
+  align-self: start;
+}
+
+.visual-a {
+  background-color: var(--color-light-blue);
+  padding: var(--spacing);
+  border-radius: var(--border-radius-xl);
+}
+
+.visual-b {
+  background-color: var(--color-golf-green);
+  padding: var(--spacing);
+  border-radius: var(--border-radius-xl);
 }
